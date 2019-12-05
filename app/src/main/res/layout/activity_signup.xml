@@ -57,17 +57,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_phone_number_input"
-        android:background="@drawable/input_design"
-        android:padding="20dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
         android:layout_marginTop="6dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/input_design"
         android:hint="Password"
         android:inputType="textPassword"
+        android:padding="20dp"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimaryDark"
-        android:textSize="19sp"
-        />
+        android:textSize="19sp" />
 
 
     <Button
@@ -75,16 +74,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_password_input"
-        android:layout_marginTop="50dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="50dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/buttons"
         android:padding="17dp"
-        android:textAllCaps="false"
-        android:textSize="18sp"
         android:text="Create Account"
-
+        android:textAllCaps="false"
         android:textColor="@android:color/white"
-        />
+
+        android:textSize="18sp" />
 
 </RelativeLayout>
