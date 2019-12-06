@@ -56,7 +56,7 @@ public class HomeActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Home");
-        setSupportActionBar(toolbar);
+       setSupportActionBar(toolbar);
 
 
        com.google.android.material.floatingactionbutton.FloatingActionButton fab = (com.google.android.material.floatingactionbutton.FloatingActionButton) findViewById(R.id.fab);
@@ -86,7 +86,7 @@ public class HomeActivity extends AppCompatActivity
         userNameTextView.setText(Prevalent.currentOnlineUser.getName());
         Picasso.get().load(Prevalent.currentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
 
-serch =findViewById(R.id.action_serch);
+serch =findViewById(R.id.action_recherch);
         recyclerView = findViewById(R.id.recycler_menu);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -164,7 +164,7 @@ serch =findViewById(R.id.action_serch);
     {
         int id = item.getItemId();
 
-      if (id == R.id.action_serch)
+      if (id == R.id.action_recherch)
        {
 
        }

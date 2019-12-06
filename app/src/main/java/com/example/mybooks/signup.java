@@ -110,7 +110,7 @@ public class signup extends AppCompatActivity {
                                         Toast.makeText(signup.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
                                         loadingBar.dismiss();
 
-                                        Intent intent = new Intent(signup.this, login.class);
+                                        Intent intent = new Intent(signup.this, LoginActivity.class);
                                         startActivity(intent);
                                     }
                                     else
@@ -127,7 +127,7 @@ public class signup extends AppCompatActivity {
                     loadingBar.dismiss();
                     Toast.makeText(signup.this, "Please try again using another phone number.", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(signup.this, login.class);
+                    Intent intent = new Intent(signup.this, LoginActivity.class);
 
                     startActivity(intent);
                 }

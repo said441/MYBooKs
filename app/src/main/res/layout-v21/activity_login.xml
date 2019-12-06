@@ -5,17 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login1"
-    tools:context=".login">
+    android:background="@drawable/livre3"
+    tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/login_applogo"
-        android:layout_width="313dp"
-        android:layout_height="212dp"
+        android:layout_width="333dp"
+        android:layout_height="178dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="79dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="56dp"
         android:src="@drawable/logo" />
 
     <EditText
@@ -96,7 +96,20 @@
         />
 
 
-
+    <TextView
+        android:id="@+id/admin_panel_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I'm an Admin?"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/login_btn"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="80dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginRight="23dp"
+        android:layout_alignParentRight="true" />
 
 
     <TextView

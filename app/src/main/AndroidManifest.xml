@@ -9,13 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CartActivity" />
-        <activity android:name=".ConfirmFinalOrderActivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".AdminMaintainProductsActivity" />
+        <activity android:name=".AdminUserProductsActivity" />
+        <activity android:name=".AdminNewOrdersActivity" />
+        <activity android:name=".ForgotPassword" />
+        <activity android:name=".Serch" />
+        <activity android:name=".Sieting" />
         <activity android:name=".ProductDetailsActivity" />
+        <activity android:name=".ConfirmFinalOrderActivity" />
+        <activity android:name=".CartActivity" />
+        <activity android:name=".Admin" />
+        <activity android:name=".AdminAddNewProductActivity" />
+        <activity android:name=".AdminCategoryActivity" />
+        <activity android:name=".LoginActivity" />
+
+        <activity android:name=".HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
 
-        <activity android:name=".login" />
         <activity android:name=".signup" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -1,8 +1,5 @@
 package com.example.mybooks;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +11,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+
 import com.example.mybooks.Model.User;
 import com.example.mybooks.Prevalent.Prevalent;
 import com.google.firebase.database.DataSnapshot;
@@ -24,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import io.paperdb.Paper;
 
-public class login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText InputPhoneNumber, InputPassword;
     private Button LoginButton;
@@ -45,7 +46,8 @@ public class login extends AppCompatActivity {
         LoginButton = (Button) findViewById(R.id.login_btn);
         InputPassword = (EditText) findViewById(R.id.login_password_input);
         InputPhoneNumber = (EditText) findViewById(R.id.login_phone_number_input);
-
+        AdminLink = (TextView) findViewById(R.id.admin_panel_link);
+        NotAdminLink = (TextView) findViewById(R.id.not_admin_panel_link);
         loadingBar = new ProgressDialog(this);
 
 
@@ -61,7 +63,29 @@ public class login extends AppCompatActivity {
             }
         });
 
+        AdminLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent=new Intent(LoginActivity.this,Admin.class);
+                startActivity(intent);
+                LoginButton.setText("Login Admin");
+                AdminLink.setVisibility(View.INVISIBLE);
+                NotAdminLink.setVisibility(View.VISIBLE);
+                parentDbName = "Admins";
+            }
+        });
 
+        NotAdminLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                LoginButton.setText("Login");
+                AdminLink.setVisibility(View.VISIBLE);
+                NotAdminLink.setVisibility(View.INVISIBLE);
+                parentDbName = "Users";
+            }
+        });
     }
 
 
@@ -116,26 +140,26 @@ public class login extends AppCompatActivity {
 
                     if (usersData.getPhone().equals(phone))
                     {
-                        if (parentDbName.equals("Users"))
-                        {
-                            Toast.makeText(login.this, "logged in Successfully...", Toast.LENGTH_SHORT).show();
-                            loadingBar.dismiss();
+                         if (parentDbName.equals("Users"))
+                            {
+                                Toast.makeText(LoginActivity.this, "logged in Successfully...", Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
 
-                            Intent intent = new Intent(login.this, HomeActivity.class);
-                            Prevalent.currentOnlineUser = usersData;
-                            startActivity(intent);
-                        }
+                                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                                Prevalent.currentOnlineUser = usersData;
+                                startActivity(intent);
+                            }
 
                         else
                         {
                             loadingBar.dismiss();
-                            Toast.makeText(login.this, "Password is incorrect.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Password is incorrect.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
                 else
                 {
-                    Toast.makeText(login.this, "Account with this " + phone + " number do not exists.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Account with this " + phone + " number do not exists.", Toast.LENGTH_SHORT).show();
                     loadingBar.dismiss();
                 }
             }
@@ -147,4 +171,3 @@ public class login extends AppCompatActivity {
         });
     }
 }
-
