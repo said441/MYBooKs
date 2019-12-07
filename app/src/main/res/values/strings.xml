@@ -15,4 +15,7 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="title_activity_home">HomeActivity</string>
+    <string name="cart">Cart</string>
+    <string name="seting">Seting</string>
+    <string name="logout">logout</string>
 </resources>

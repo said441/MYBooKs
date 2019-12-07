@@ -17,56 +17,52 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.rey.material.widget.CheckBox;
 
-import io.paperdb.Paper;
+
+
 
 public class Admin extends AppCompatActivity {
-    private Button LoginButton;
     private EditText InputEmail;
     private EditText InputPassword;
     private FirebaseAuth firebaseAuth;
-    private TextView NotAdminlink;
-    private String emailpater="[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
-    private CheckBox chkBoxRememberMe;
+
     private ProgressDialog loadingBar;
-    private TextView forgotpasword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
-        LoginButton=(Button)findViewById(R.id.login_btn);
-        forgotpasword=findViewById(R.id.forget_password_link);
+        Button loginButton = findViewById(R.id.login_btn);
+        TextView forgotpasword = findViewById(R.id.forget_password_link);
         forgotpasword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-Intent intent=new Intent(Admin.this,ForgotPassword.class);
-startActivity(intent);
+                Intent intent=new Intent(Admin.this,ForgotPassword.class);
+                startActivity(intent);
                 overridePendingTransition(R.anim.slide_left, R.anim.slide_out_right);
             }
         });
         loadingBar =new ProgressDialog(this);
-        firebaseAuth= FirebaseAuth.getInstance();
-        chkBoxRememberMe=(CheckBox) findViewById(R.id.remember_me_chkb);
-        InputPassword = (EditText) findViewById(R.id.login_password_input);
-        InputEmail = (EditText) findViewById(R.id.login_phone_number_input);
-        NotAdminlink=(TextView)findViewById(R.id.not_admin_panel_link);
-        NotAdminlink.setOnClickListener(new View.OnClickListener() {
+        firebaseAuth=FirebaseAuth.getInstance();
+
+        InputPassword =  findViewById(R.id.login_password_input);
+        InputEmail =  findViewById(R.id.login_phone_number_input);
+        TextView notAdminlink = findViewById(R.id.not_admin_panel_link);
+        notAdminlink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Admin.this,LoginActivity.class);
                 startActivity(intent);
             }
         });
-        LoginButton.setOnClickListener(new View.OnClickListener() {
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 LoginAdmin();
             }
         });
 
-        chkBoxRememberMe = (CheckBox) findViewById(R.id.remember_me_chkb);
-        Paper.init(this);
+
 
 
     }
@@ -82,7 +78,7 @@ startActivity(intent);
         } else {
             loadingBar.setTitle("Login Account");
             loadingBar.setMessage("Please wait, while we are checking the credentials.");
-            loadingBar.setCanceledOnTouchOutside(false);
+            loadingBar.setCanceledOnTouchOutside(true);
             loadingBar.show();
 
 
@@ -91,6 +87,7 @@ startActivity(intent);
     }
 
     private void AllowAccessToAccount(String email, String password) {
+        String emailpater = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
         if (email.matches(emailpater)){
             if (password.length()>=8){
                 firebaseAuth.signInWithEmailAndPassword(email,password)
