@@ -18,4 +18,10 @@
     <string name="cart">Cart</string>
     <string name="seting">Seting</string>
     <string name="logout">logout</string>
+    <string name="todo">TODO</string>
+
+    <string name="modifier_products">Modifier Products</string>
+    <string name="new_orders">New Orders</string>
+    <string name="add_books">Add Books</string>
+    <string name="add_new_product">Add New Product</string>
 </resources>
