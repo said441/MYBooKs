@@ -121,8 +121,8 @@ public class LoginActivity extends AppCompatActivity {
     {
         if(chkBoxRememberMe.isChecked())
         {
-            Paper.book().write(Prevalent.UserPhoneKey, phone);
-            Paper.book().write(Prevalent.UserPasswordKey, password);
+            Paper.book().write(Prevalent.getUserPhoneKey(), phone);
+            Paper.book().write(Prevalent.getUserPasswordKey(), password);
         }
 
 
@@ -146,7 +146,7 @@ public class LoginActivity extends AppCompatActivity {
                                 loadingBar.dismiss();
 
                                 Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                                Prevalent.currentOnlineUser = usersData;
+                                Prevalent.setCurrentOnlineUser(usersData);
                                 startActivity(intent);
                             }
 

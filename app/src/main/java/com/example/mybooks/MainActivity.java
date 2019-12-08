@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        joinNowButton = (Button) findViewById(R.id.main_join_now_btn);
-        loginButton = (Button) findViewById(R.id.main_login_btn);
+        joinNowButton = findViewById(R.id.main_join_now_btn);
+        loginButton =  findViewById(R.id.main_login_btn);
         loadingBar = new ProgressDialog(this);
 
 
@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
-        String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey);
+        String UserPhoneKey = Paper.book().read(Prevalent.getUserPhoneKey());
+        String UserPasswordKey = Paper.book().read(Prevalent.getUserPasswordKey());
 
         if (UserPhoneKey != "" && UserPasswordKey != "")
         {
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                             loadingBar.dismiss();
 
                             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                            Prevalent.currentOnlineUser = usersData;
+                            Prevalent.setCurrentOnlineUser(usersData);
                             startActivity(intent);
                         }
                         else
