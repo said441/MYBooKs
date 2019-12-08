@@ -130,8 +130,7 @@ serch =findViewById(R.id.action_recherch);
                     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
                     {
                         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.products_items_layout, parent, false);
-                        ProductViewHolder holder = new ProductViewHolder(view);
-                        return holder;
+                        return new ProductViewHolder(view);
                     }
                 };
         recyclerView.setAdapter(adapter);
@@ -140,7 +139,7 @@ serch =findViewById(R.id.action_recherch);
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -166,7 +165,8 @@ serch =findViewById(R.id.action_recherch);
 
       if (id == R.id.action_recherch)
        {
-
+           Intent intent=new Intent(HomeActivity.this,Serch.class);
+           startActivity(intent);
        }
 
         return super.onOptionsItemSelected(item);
@@ -187,12 +187,14 @@ serch =findViewById(R.id.action_recherch);
         }
 
         else if (id == R.id.nav_cart)
-        {
+        {Intent intent=new Intent(HomeActivity.this,CartActivity.class);
+            startActivity(intent);
 
         }
         else if (id == R.id.nav_settings)
         {
-
+            Intent intent=new Intent(HomeActivity.this,Sieting.class);
+            startActivity(intent);
         }
         else if (id == R.id.nav_logout)
         {
@@ -204,7 +206,7 @@ serch =findViewById(R.id.action_recherch);
             finish();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer =findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

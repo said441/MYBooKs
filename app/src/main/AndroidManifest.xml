@@ -20,6 +20,7 @@ android:allowBackup="true"
         <activity android:name=".Sieting" />
         <activity android:name=".ProductDetailsActivity" />
         <activity android:name=".ConfirmFinalOrderActivity" />
+
         <activity android:name=".CartActivity" />
         <activity android:name=".Admin" />
         <activity android:name=".AdminAddNewProductActivity" />
